@@ -81,7 +81,7 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
         if indexPath.section == 0 {
             if let _current = _forecast.currently {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsHeaderCell", for: indexPath) as! DetailsHeaderCell
-                cell.setData(_current)
+                cell.setData(_current, city?.name ?? "")
                 return cell
             }
         } else {
@@ -95,25 +95,27 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsHourlyCell", for: indexPath) as! DetailsHourlyForecast
                 cell.setData(hourlyData: _forecast.hourly!.data[indexPath.row - 1])
                 return cell
+                
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsDailyCell", for: indexPath) as! DetailsDailyForecast
                 cell.setData(_forecast.daily!.data[indexPath.row - 1])
                 return cell
+                
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsExtraCell", for: indexPath) as! DetailsExtraInfos
                 if indexPath.row == 1 {
                     cell.setData(
-                        leftData: ExtraInfo(title: "Humidity", value: "\(String(format: "%.0f", _forecast.currently?.humidity ?? 0.0))%"),
-                        rightData: ExtraInfo(title: "Wind Speed", value: "\(String(format: "%.0f", _forecast.currently?.windSpeed ?? 0.0)) km/h")
+                        leftData: ExtraInfo(title: "Humidity", value: "\((_forecast.currently?.humidity ?? 0.0).toRoundString())%"),
+                        rightData: ExtraInfo(title: "Wind Speed", value: "\((_forecast.currently?.windSpeed ?? 0.0).toRoundString()) km/h")
                     )
                 } else if indexPath.row == 2 {
                     cell.setData(
-                        leftData: ExtraInfo(title: "Pressure", value: "\(String(format: "%.0f", _forecast.currently?.pressure ?? 0.0))hPa"),
-                        rightData: ExtraInfo(title: "UV", value: String(format: "%.0f", _forecast.currently?.uvIndex ?? 0.0))
+                        leftData: ExtraInfo(title: "Pressure", value: "\((_forecast.currently?.pressure ?? 0.0).toRoundString())hPa"),
+                        rightData: ExtraInfo(title: "UV", value: (_forecast.currently?.uvIndex ?? 0.0).toRoundString())
                     )
                 }
                 return cell
-
+                
             default: return UITableViewCell()
             }
         }

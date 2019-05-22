@@ -24,10 +24,10 @@ class DetailsDailyForecast : UITableViewCell {
             icon.image = UIImage(named: _icon.rawValue)
         }
         if let _minTemp = dailyData.temperatureMin {
-            labelMinTemp.text = "\(String(format: "%.0f", _minTemp))°C"
+            labelMinTemp.text = "\(_minTemp.toRoundString())°C"
         }
         if let _maxTemp = dailyData.temperatureMax {
-            labelMaxTemp.text = "\(String(format: "%.0f", _maxTemp))°C"
+            labelMaxTemp.text = "\(_maxTemp.toRoundString())°C"
         }
     }
 }

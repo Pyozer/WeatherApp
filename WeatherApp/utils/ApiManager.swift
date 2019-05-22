@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import CoreLocation
 
 typealias OnSuccess<T> = (_ response: T) -> Void
 typealias OnFail = (_ error: Error?) -> Void
@@ -32,11 +33,13 @@ class ApiManager {
         return nil
     }
     
-    static func getWeatherForecast(city: City, onSuccess: @escaping OnSuccess<Forecast>, onFail: @escaping OnFail) {
+    private static func getApiUrl(_ coords: CLLocationCoordinate2D) -> String {
         let apiKey = "8509ca59d63715fe79b671731751dd30"
-        Alamofire.request(
-            "https://api.darksky.net/forecast/\(apiKey)/\(city.coordinates.latitude),\(city.coordinates.longitude)?units=si"
-        ).responseData { response in
+        return "https://api.darksky.net/forecast/\(apiKey)/\(coords.latitude),\(coords.longitude)?units=si&exclude=minutely,flags"
+    }
+    
+    static func getWeatherForecast(city: City, onSuccess: @escaping OnSuccess<Forecast>, onFail: @escaping OnFail) {
+        Alamofire.request(getApiUrl(city.coordinates)).responseData { response in
             if let _houses = parseData(response, Forecast.self, onFail) {
                 onSuccess(_houses)
             }

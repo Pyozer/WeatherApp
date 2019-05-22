@@ -12,7 +12,7 @@ class DetailsHourlyForecast : UITableViewCell {
     
     @IBOutlet weak var labelHour: UILabel!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var labelPrecipitation: UILabel!
+    @IBOutlet weak var labelHumidity: UILabel!
     @IBOutlet weak var labelTemp: UILabel!
     
     func setData(hourlyData: DataPoint) {
@@ -24,10 +24,12 @@ class DetailsHourlyForecast : UITableViewCell {
             icon.image = UIImage(named: _icon.rawValue)
         }
         if let _humidity = hourlyData.humidity {
-            labelPrecipitation.text = "\(String(format: "%.0f", _humidity * 100.0))%"
+            if _humidity > 0 {
+                labelHumidity.text = "\((_humidity * 100.0).toRoundString())%"
+            }
         }
         if let _temp = hourlyData.temperature {
-            labelTemp.text = "\(String(format: "%.0f", _temp))°C"
+            labelTemp.text = "\(_temp.toRoundString())°C"
         }
     }
     

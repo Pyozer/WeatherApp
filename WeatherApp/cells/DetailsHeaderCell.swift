@@ -10,11 +10,13 @@ import UIKit
 
 class DetailsHeaderCell : UITableViewCell {
     
+    @IBOutlet weak var headerCity: UILabel!
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var headerTemp: UILabel!
     @IBOutlet weak var headerWeather: UILabel!
     
-    func setData(_ current: DataPoint) {
+    func setData(_ current: DataPoint, _ city: String) {
+        headerCity.text = city
         if let _icon = current.icon {
             headerImage.image = UIImage(named: _icon.rawValue)
         }
