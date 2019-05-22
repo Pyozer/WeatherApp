@@ -100,10 +100,20 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsDailyCell", for: indexPath) as! DetailsDailyForecast
                 cell.setData(_forecast.daily!.data[indexPath.row - 1])
                 return cell
-            /*case 4:
+            case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsExtraCell", for: indexPath) as! DetailsExtraInfos
-                cell.setData(extraInfo: _forecast.currently!)
-                return cell*/
+                if indexPath.row == 1 {
+                    cell.setData(
+                        leftData: ExtraInfo(title: "Humidity", value: "\(String(format: "%.0f", _forecast.currently?.humidity ?? 0.0))%"),
+                        rightData: ExtraInfo(title: "Wind Speed", value: "\(String(format: "%.0f", _forecast.currently?.windSpeed ?? 0.0)) km/h")
+                    )
+                } else if indexPath.row == 2 {
+                    cell.setData(
+                        leftData: ExtraInfo(title: "Pressure", value: "\(String(format: "%.0f", _forecast.currently?.pressure ?? 0.0))hPa"),
+                        rightData: ExtraInfo(title: "UV", value: String(format: "%.0f", _forecast.currently?.uvIndex ?? 0.0))
+                    )
+                }
+                return cell
 
             default: return UITableViewCell()
             }
