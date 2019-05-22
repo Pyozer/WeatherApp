@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ForecastIO
 
 class DetailsHourlyForecast : UITableViewCell {
     

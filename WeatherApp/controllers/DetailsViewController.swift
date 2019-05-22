@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ForecastIO
 
 class DetailsViewController : UIViewController, UITableViewDataSource {
     var city: City?
