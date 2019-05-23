@@ -27,6 +27,9 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
                 city: _city,
                 onSuccess: { result in
                     self.forecast = result
+                    if let _only24hForecast = self.forecast?.hourly?.data.prefix(24) {
+                        self.forecast?.hourly?.data = Array(_only24hForecast)
+                    }
                     self.tableView.reloadData()
                 },
                 onFail: { error in
@@ -79,11 +82,9 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
         }
         
         if indexPath.section == 0 {
-            if let _current = _forecast.currently {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsHeaderCell", for: indexPath) as! DetailsHeaderCell
-                cell.setData(_current, city?.name ?? "")
-                return cell
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsHeaderCell", for: indexPath) as! DetailsHeaderCell
+            cell.setData(_forecast, city?.name ?? "")
+            return cell
         } else {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsTitleCell", for: indexPath) as! DetailsTitleCell
@@ -119,7 +120,5 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
             default: return UITableViewCell()
             }
         }
-        
-        return UITableViewCell()
     }
 }

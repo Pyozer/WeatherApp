@@ -11,5 +11,5 @@ import Foundation
 struct DataBlock: Decodable {
     let summary: String?
     let icon: Icon?
-    let data: [DataPoint]
+    var data: [DataPoint]
 }

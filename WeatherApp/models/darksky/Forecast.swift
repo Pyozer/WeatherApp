@@ -13,6 +13,6 @@ struct Forecast: Decodable {
      let alerts: [Alert]?
      let flags: Flag?
      let currently: DataPoint?
-     let hourly: DataBlock?
+     var hourly: DataBlock?
      let daily: DataBlock?
 }
