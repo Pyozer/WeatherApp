@@ -24,9 +24,11 @@ class DetailsHeaderCell : UITableViewCell {
             headerImage.image = UIImage(named: _icon.rawValue)
         }
         if let _temp = forecast.currently?.temperature {
-            headerTemp.text = "\(_temp)°C"
+            headerTemp.text = Utils.formatTemperature(_temp)
         }
         headerWeather.text = forecast.currently?.summary
+        
+        chartControl.setTitle(Settings.unitSystem == .us ? "°F" : "°C", forSegmentAt: 0)
         
         var temperaturesEntries = [ChartDataEntry]()
         var humidityEntries = [ChartDataEntry]()
@@ -103,7 +105,7 @@ class TempratureValueFormatter : IValueFormatter {
         dataSetIndex: Int,
         viewPortHandler methodviewPortHandler: ViewPortHandler?
         ) -> String {
-        return Int(entry.x) % 2 == 0 && entry.x != 0.0 ? "\(entry.y.toRoundString())°C" : ""
+        return Int(entry.x) % 2 == 0 && entry.x != 0.0 ? Utils.formatTemperature(entry.y) : ""
     }
 }
 

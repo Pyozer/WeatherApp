@@ -18,10 +18,9 @@ class DetailsExtraInfos : UITableViewCell {
     func setData(_ currentForecast: DataPoint, _ index: Int) {
         if index == 1 {
             labelLeftTitle.text = "Humidity"
-            labelLeftValue.text = "\((currentForecast.humidity ?? 0.0).toRoundString())%"
+            labelLeftValue.text = "\(((currentForecast.humidity ?? 0.0) * 100.0).toRoundString())%"
             labelRightTitle.text = "Wind Speed"
-            let speed = (currentForecast.windSpeed ?? 0.0).toRoundString()
-            labelRightValue.text = Settings.unitSystem == .si ? "\(speed) km/h" : "\(speed) mph"
+            labelRightValue.text = Utils.formatSpeed(currentForecast.windSpeed ?? 0.0)
         } else if index == 2 {
             labelLeftTitle.text = "Pressure"
             labelLeftValue.text = "\((currentForecast.pressure ?? 0.0).toRoundString())hPa"

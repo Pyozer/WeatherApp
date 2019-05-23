@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController : UIViewController, UITableViewDataSource {
+class DetailsViewController : BaseViewController, UITableViewDataSource {
     var city: City?
     var forecast: Forecast?
     
@@ -37,11 +37,6 @@ class DetailsViewController : UIViewController, UITableViewDataSource {
                 }
             )
         }
-    }
-    
-    private func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
     }
     
     private func getSectionTitle(_ section: Int) -> String {

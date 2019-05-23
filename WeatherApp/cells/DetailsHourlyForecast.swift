@@ -29,7 +29,7 @@ class DetailsHourlyForecast : UITableViewCell {
             }
         }
         if let _temp = hourlyData.temperature {
-            labelTemp.text = "\(_temp.toRoundString())°C"
+            labelTemp.text = Utils.formatTemperature(_temp)
         }
     }
     

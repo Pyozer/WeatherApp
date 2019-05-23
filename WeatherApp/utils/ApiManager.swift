@@ -33,15 +33,24 @@ class ApiManager {
         return nil
     }
     
-    private static func getApiUrl(_ coords: CLLocationCoordinate2D) -> String {
+    private static func getDarkSkyApiUrl(_ coords: CLLocationCoordinate2D) -> String {
         let apiKey = "8509ca59d63715fe79b671731751dd30"
         return "https://api.darksky.net/forecast/\(apiKey)/\(coords.latitude),\(coords.longitude)?units=\(Settings.unitSystem.rawValue)&lang=\(Settings.language.rawValue)&exclude=minutely,flags"
     }
     
     static func getWeatherForecast(city: City, onSuccess: @escaping OnSuccess<Forecast>, onFail: @escaping OnFail) {
-        Alamofire.request(getApiUrl(city.coordinates)).responseData { response in
+        Alamofire.request(getDarkSkyApiUrl(city.coordinates)).responseData { response in
             if let _houses = parseData(response, Forecast.self, onFail) {
                 onSuccess(_houses)
+            }
+        }
+    }
+    
+    static func searchCity(city: String, onSuccess: @escaping OnSuccess<OpenCageResponse>, onFail: @escaping OnFail) {
+        let apiKey = "d4e31e434f454275afdd763478b59891"
+        Alamofire.request("https://api.opencagedata.com/geocode/v1/json?q=\(city)&key=\(apiKey)").responseData { response in
+            if let _response = parseData(response, OpenCageResponse.self, onFail) {
+                onSuccess(_response)
             }
         }
     }

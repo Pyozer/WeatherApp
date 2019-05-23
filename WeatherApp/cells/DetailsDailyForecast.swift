@@ -19,16 +19,16 @@ class DetailsDailyForecast : UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         dateFormatter.locale = Locale(identifier: Settings.language.rawValue)
-        labelDay.text = dateFormatter.string(from: dailyData.time)
+        labelDay.text = dateFormatter.string(from: dailyData.time).capitalized
         
         if let _icon = dailyData.icon {
             icon.image = UIImage(named: _icon.rawValue)
         }
         if let _minTemp = dailyData.temperatureMin {
-            labelMinTemp.text = "\(_minTemp.toRoundString())°C"
+            labelMinTemp.text = Utils.formatTemperature(_minTemp)
         }
         if let _maxTemp = dailyData.temperatureMax {
-            labelMaxTemp.text = "\(_maxTemp.toRoundString())°C"
+            labelMaxTemp.text = Utils.formatTemperature(_maxTemp)
         }
     }
 }

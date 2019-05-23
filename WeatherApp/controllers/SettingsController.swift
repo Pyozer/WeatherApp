@@ -33,7 +33,7 @@ class SettingsController : UIViewController {
         if selected == 0 {
             Settings.unitSystem = Units.si
         } else if selected == 1 {
-            Settings.unitSystem = Units.uk
+            Settings.unitSystem = Units.us
         }
     }
 }

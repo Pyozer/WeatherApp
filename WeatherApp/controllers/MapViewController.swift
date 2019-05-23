@@ -60,6 +60,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITableViewDataSou
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+    
+    @IBAction func onSearchBtnPressed(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCityController") as? SearchCityController
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     private func initMap() {
         mapView.delegate = self
         mapView.showsUserLocation = true

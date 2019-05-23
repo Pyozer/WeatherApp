@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1155F8EDA94498BF55BC9110 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */; };
+		5131FA172297480F001CFAE8 /* SearchCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FA162297480F001CFAE8 /* SearchCityCell.swift */; };
+		5131FA1A22974FB8001CFAE8 /* OpenCageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FA1922974FB8001CFAE8 /* OpenCageResponse.swift */; };
+		5131FA1C2297534A001CFAE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FA1B2297534A001CFAE8 /* BaseViewController.swift */; };
 		514036742296BE0B00F5AD13 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036732296BE0B00F5AD13 /* SettingsController.swift */; };
 		514036762296BF3700F5AD13 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036752296BF3700F5AD13 /* Settings.swift */; };
 		514036782296BFAC00F5AD13 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036772296BFAC00F5AD13 /* Language.swift */; };
+		5140367A2296D96A00F5AD13 /* SearchCityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036792296D96A00F5AD13 /* SearchCityController.swift */; };
 		514093BC22951FF600E5D5D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514093BB22951FF600E5D5D2 /* AppDelegate.swift */; };
 		514093BE22951FF600E5D5D2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514093BD22951FF600E5D5D2 /* MapViewController.swift */; };
 		514093C122951FF600E5D5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514093BF22951FF600E5D5D2 /* Main.storyboard */; };
@@ -39,9 +43,13 @@
 
 /* Begin PBXFileReference section */
 		14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5131FA162297480F001CFAE8 /* SearchCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityCell.swift; sourceTree = "<group>"; };
+		5131FA1922974FB8001CFAE8 /* OpenCageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCageResponse.swift; sourceTree = "<group>"; };
+		5131FA1B2297534A001CFAE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		514036732296BE0B00F5AD13 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		514036752296BF3700F5AD13 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		514036772296BFAC00F5AD13 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		514036792296D96A00F5AD13 /* SearchCityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityController.swift; sourceTree = "<group>"; };
 		514093B822951FF600E5D5D2 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514093BB22951FF600E5D5D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		514093BD22951FF600E5D5D2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +101,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5131FA1822974FA7001CFAE8 /* opencage */ = {
+			isa = PBXGroup;
+			children = (
+				5131FA1922974FB8001CFAE8 /* OpenCageResponse.swift */,
+			);
+			path = opencage;
+			sourceTree = "<group>";
+		};
 		514093AF22951FF600E5D5D2 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +147,7 @@
 		514093D62295273B00E5D5D2 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				5131FA1822974FA7001CFAE8 /* opencage */,
 				514093E622953FE000E5D5D2 /* darksky */,
 				514093CF2295207D00E5D5D2 /* City.swift */,
 			);
@@ -143,6 +160,8 @@
 				514093BD22951FF600E5D5D2 /* MapViewController.swift */,
 				514093D1229524BC00E5D5D2 /* DetailsViewController.swift */,
 				514036732296BE0B00F5AD13 /* SettingsController.swift */,
+				514036792296D96A00F5AD13 /* SearchCityController.swift */,
+				5131FA1B2297534A001CFAE8 /* BaseViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -165,6 +184,7 @@
 				514093E02295333900E5D5D2 /* DetailsHourlyForecast.swift */,
 				514093E42295338200E5D5D2 /* DetailsExtraInfos.swift */,
 				514093E22295335300E5D5D2 /* DetailsDailyForecast.swift */,
+				5131FA162297480F001CFAE8 /* SearchCityCell.swift */,
 				514093F92295884100E5D5D2 /* CityCell.swift */,
 			);
 			path = cells;
@@ -320,12 +340,16 @@
 				514093F22295409A00E5D5D2 /* Icon.swift in Sources */,
 				514093FA2295884100E5D5D2 /* CityCell.swift in Sources */,
 				514093DF2295331800E5D5D2 /* DetailsTitleCell.swift in Sources */,
+				5131FA172297480F001CFAE8 /* SearchCityCell.swift in Sources */,
+				5131FA1C2297534A001CFAE8 /* BaseViewController.swift in Sources */,
+				5140367A2296D96A00F5AD13 /* SearchCityController.swift in Sources */,
 				514093BE22951FF600E5D5D2 /* MapViewController.swift in Sources */,
 				514093DD229532DA00E5D5D2 /* DetailsHeaderCell.swift in Sources */,
 				514093E822953FF600E5D5D2 /* Forecast.swift in Sources */,
 				514093EA2295403200E5D5D2 /* Alert.swift in Sources */,
 				514036762296BF3700F5AD13 /* Settings.swift in Sources */,
 				514093D02295207D00E5D5D2 /* City.swift in Sources */,
+				5131FA1A22974FB8001CFAE8 /* OpenCageResponse.swift in Sources */,
 				514093EE2295406600E5D5D2 /* Flag.swift in Sources */,
 				514093E52295338200E5D5D2 /* DetailsExtraInfos.swift in Sources */,
 				514093E32295335300E5D5D2 /* DetailsDailyForecast.swift in Sources */,

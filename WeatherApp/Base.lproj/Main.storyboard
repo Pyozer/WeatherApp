@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sp1-Vd-QuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-564" y="664"/>
+            <point key="canvasLocation" x="-1233" y="664"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -77,15 +77,25 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYb-MR-nTD">
+                                        <rect key="frame" x="334" y="32" width="48" height="36"/>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="onSearchBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uMt-DP-SUd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="NTh-KX-tYI" secondAttribute="trailing" id="AIs-Uo-iSz"/>
                                     <constraint firstItem="UiG-y0-XAU" firstAttribute="leading" secondItem="cZL-Kc-8f2" secondAttribute="leading" constant="32" id="B3Q-oi-Aha"/>
+                                    <constraint firstAttribute="trailing" secondItem="cYb-MR-nTD" secondAttribute="trailing" constant="32" id="JB3-Dx-YpI"/>
                                     <constraint firstAttribute="bottom" secondItem="NTh-KX-tYI" secondAttribute="bottom" id="QFl-F4-2HA"/>
                                     <constraint firstItem="NTh-KX-tYI" firstAttribute="leading" secondItem="cZL-Kc-8f2" secondAttribute="leading" id="V1V-Lc-wY2"/>
+                                    <constraint firstItem="cYb-MR-nTD" firstAttribute="bottom" secondItem="UiG-y0-XAU" secondAttribute="bottom" id="a8O-ef-AWd"/>
+                                    <constraint firstItem="cYb-MR-nTD" firstAttribute="top" secondItem="UiG-y0-XAU" secondAttribute="top" id="bMD-KD-eoN"/>
+                                    <constraint firstItem="cYb-MR-nTD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UiG-y0-XAU" secondAttribute="trailing" constant="32" id="cNW-dm-a2e"/>
                                     <constraint firstItem="UiG-y0-XAU" firstAttribute="top" secondItem="cZL-Kc-8f2" secondAttribute="top" constant="32" id="d97-RQ-NWn"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UiG-y0-XAU" secondAttribute="trailing" constant="32" id="gLa-Mw-iig"/>
                                     <constraint firstItem="NTh-KX-tYI" firstAttribute="top" secondItem="UiG-y0-XAU" secondAttribute="bottom" constant="22" id="k5t-R7-PTL"/>
                                 </constraints>
                             </view>
@@ -112,7 +122,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182.60869565217394" y="663.61607142857144"/>
+            <point key="canvasLocation" x="-519" y="664"/>
+        </scene>
+        <!--Search City Controller-->
+        <scene sceneID="qPf-fK-WOr">
+            <objects>
+                <viewController storyboardIdentifier="SearchCityController" id="vTm-sE-Mzq" customClass="SearchCityController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FLR-iE-FiC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-oq-sO5">
+                                <rect key="frame" x="32" y="76" width="160" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City name" textAlignment="natural" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tWT-SC-9Bv">
+                                <rect key="frame" x="32" y="144" width="350" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onTextChange:" destination="vTm-sE-Mzq" eventType="editingChanged" id="Vw0-1V-e7S"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wRU-25-0EF">
+                                <rect key="frame" x="0.0" y="206" width="414" height="690"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="82" id="K2h-JO-guw" customClass="SearchCityCell" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K2h-JO-guw" id="Cdu-qS-F8H">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="81.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9H-bU-j7R">
+                                                    <rect key="frame" x="32" y="20" width="350" height="41.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="d9H-bU-j7R" secondAttribute="bottom" constant="20" id="3H6-I4-Ujv"/>
+                                                <constraint firstItem="d9H-bU-j7R" firstAttribute="leading" secondItem="Cdu-qS-F8H" secondAttribute="leading" constant="32" id="6Xd-VK-yKg"/>
+                                                <constraint firstAttribute="trailing" secondItem="d9H-bU-j7R" secondAttribute="trailing" constant="32" id="ER3-pq-GKL"/>
+                                                <constraint firstItem="d9H-bU-j7R" firstAttribute="top" secondItem="Cdu-qS-F8H" secondAttribute="top" constant="20" id="bOu-bG-b9p"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="city" destination="d9H-bU-j7R" id="zlV-5y-dR5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EYr-sc-8IH" firstAttribute="trailing" secondItem="tWT-SC-9Bv" secondAttribute="trailing" constant="32" id="4qY-Bb-cUD"/>
+                            <constraint firstItem="tWT-SC-9Bv" firstAttribute="top" secondItem="O4H-oq-sO5" secondAttribute="bottom" constant="32" id="6U1-ov-qP5"/>
+                            <constraint firstItem="wRU-25-0EF" firstAttribute="top" secondItem="tWT-SC-9Bv" secondAttribute="bottom" constant="32" id="6Xr-ov-5ww"/>
+                            <constraint firstItem="O4H-oq-sO5" firstAttribute="leading" secondItem="EYr-sc-8IH" secondAttribute="leading" constant="32" id="Cas-Hz-hdk"/>
+                            <constraint firstItem="EYr-sc-8IH" firstAttribute="trailing" secondItem="wRU-25-0EF" secondAttribute="trailing" id="Rhr-H7-yCn"/>
+                            <constraint firstItem="O4H-oq-sO5" firstAttribute="top" secondItem="EYr-sc-8IH" secondAttribute="top" constant="32" id="bjU-Wa-JYr"/>
+                            <constraint firstItem="tWT-SC-9Bv" firstAttribute="leading" secondItem="O4H-oq-sO5" secondAttribute="leading" id="f24-J3-IyU"/>
+                            <constraint firstAttribute="bottom" secondItem="wRU-25-0EF" secondAttribute="bottom" id="gnq-03-VAD"/>
+                            <constraint firstItem="EYr-sc-8IH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="O4H-oq-sO5" secondAttribute="trailing" constant="32" id="hHK-OH-fSs"/>
+                            <constraint firstItem="wRU-25-0EF" firstAttribute="leading" secondItem="EYr-sc-8IH" secondAttribute="leading" id="wt0-uC-00P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EYr-sc-8IH"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wRU-25-0EF" id="WYC-Te-Thz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ym-AD-c9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.69565217391306" y="663.61607142857144"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="iUn-pt-SfB">
