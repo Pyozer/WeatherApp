@@ -6,8 +6,6 @@
 //  Copyright © 2019 Jean-Charles Moussé. All rights reserved.
 //
 
-import Foundation
-
 enum Units: String, Decodable {
     case si = "si"
     case us = "us"

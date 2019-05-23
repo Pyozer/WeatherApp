@@ -18,6 +18,7 @@ class DetailsDailyForecast : UITableViewCell {
     func setData(_ dailyData: DataPoint) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
+        dateFormatter.locale = Locale(identifier: Settings.language.rawValue)
         labelDay.text = dateFormatter.string(from: dailyData.time)
         
         if let _icon = dailyData.icon {

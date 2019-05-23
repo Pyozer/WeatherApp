@@ -5,10 +5,8 @@
 //  Created by Jean-Charles Moussé on 22/05/2019.
 //  Copyright © 2019 Jean-Charles Moussé. All rights reserved.
 //
-
 import Foundation
 
-/// Weather data for a specific location and time.
 struct DataPoint: Decodable {
     let time: Date
     let summary: String?

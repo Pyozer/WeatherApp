@@ -6,8 +6,6 @@
 //  Copyright © 2019 Jean-Charles Moussé. All rights reserved.
 //
 
-import Foundation
-
 struct DataBlock: Decodable {
     let summary: String?
     let icon: Icon?

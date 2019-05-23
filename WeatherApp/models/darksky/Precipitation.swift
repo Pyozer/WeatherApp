@@ -6,8 +6,6 @@
 //  Copyright © 2019 Jean-Charles Moussé. All rights reserved.
 //
 
-import Foundation
-
 enum Precipitation: String, Decodable {
     case rain = "rain"
     case snow = "snow"

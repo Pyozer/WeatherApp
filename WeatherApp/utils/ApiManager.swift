@@ -35,7 +35,7 @@ class ApiManager {
     
     private static func getApiUrl(_ coords: CLLocationCoordinate2D) -> String {
         let apiKey = "8509ca59d63715fe79b671731751dd30"
-        return "https://api.darksky.net/forecast/\(apiKey)/\(coords.latitude),\(coords.longitude)?units=si&exclude=minutely,flags"
+        return "https://api.darksky.net/forecast/\(apiKey)/\(coords.latitude),\(coords.longitude)?units=\(Settings.unitSystem.rawValue)&lang=\(Settings.language.rawValue)&exclude=minutely,flags"
     }
     
     static func getWeatherForecast(city: City, onSuccess: @escaping OnSuccess<Forecast>, onFail: @escaping OnFail) {

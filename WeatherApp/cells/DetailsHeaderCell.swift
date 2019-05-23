@@ -35,20 +35,19 @@ class DetailsHeaderCell : UITableViewCell {
         
         let calendar = Calendar.current
         for (index, forecastValue) in (forecast.hourly?.data ?? []).enumerated() {
-            if let _temperature = forecastValue.temperature {
-                let value = ChartDataEntry(x: Double(index), y: Double(_temperature))
-                temperaturesEntries.append(value)
+            if let _temperature = forecastValue.temperature, let _humidity = forecastValue.humidity {
+                let tempValue = ChartDataEntry(x: Double(index), y: Double(_temperature))
+                temperaturesEntries.append(tempValue)
                 
-                if let _humidity = forecastValue.humidity, let _maxTemp = forecast.daily?.data[0].temperatureMax {
-                    let value = ChartDataEntry(x: Double(index), y: _humidity * _maxTemp)
-                    humidityEntries.append(value)
-                }
+                let humidValue = ChartDataEntry(x: Double(index), y: _humidity * forecast.daily!.data[0].temperatureMax!)
+                humidityEntries.append(humidValue)
                 
                 xAxisStrings.append(index != 0 ? "\(calendar.component(.hour, from: forecastValue.time))h" : "")
             }
         }
         
         let line1 = LineChartDataSet(entries: temperaturesEntries, label: "Temperature")
+        line1.mode = .cubicBezier
         applyParamsLineChart(line1, #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), TempratureValueFormatter())
         
         let line2 = LineChartDataSet(entries: humidityEntries, label: "Humidity")

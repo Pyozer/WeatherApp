@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1155F8EDA94498BF55BC9110 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */; };
+		514036742296BE0B00F5AD13 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036732296BE0B00F5AD13 /* SettingsController.swift */; };
+		514036762296BF3700F5AD13 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036752296BF3700F5AD13 /* Settings.swift */; };
+		514036782296BFAC00F5AD13 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514036772296BFAC00F5AD13 /* Language.swift */; };
 		514093BC22951FF600E5D5D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514093BB22951FF600E5D5D2 /* AppDelegate.swift */; };
 		514093BE22951FF600E5D5D2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514093BD22951FF600E5D5D2 /* MapViewController.swift */; };
 		514093C122951FF600E5D5D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514093BF22951FF600E5D5D2 /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		514036732296BE0B00F5AD13 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		514036752296BF3700F5AD13 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		514036772296BFAC00F5AD13 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		514093B822951FF600E5D5D2 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514093BB22951FF600E5D5D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		514093BD22951FF600E5D5D2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 				514093C222951FF600E5D5D2 /* Assets.xcassets */,
 				514093C422951FF600E5D5D2 /* LaunchScreen.storyboard */,
 				514093C722951FF600E5D5D2 /* Info.plist */,
+				514036752296BF3700F5AD13 /* Settings.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 			children = (
 				514093BD22951FF600E5D5D2 /* MapViewController.swift */,
 				514093D1229524BC00E5D5D2 /* DetailsViewController.swift */,
+				514036732296BE0B00F5AD13 /* SettingsController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				514093F12295409A00E5D5D2 /* Icon.swift */,
 				514093F3229540C800E5D5D2 /* Precipitation.swift */,
 				514093F5229540EA00E5D5D2 /* Units.swift */,
+				514036772296BFAC00F5AD13 /* Language.swift */,
 			);
 			path = darksky;
 			sourceTree = "<group>";
@@ -315,6 +324,7 @@
 				514093DD229532DA00E5D5D2 /* DetailsHeaderCell.swift in Sources */,
 				514093E822953FF600E5D5D2 /* Forecast.swift in Sources */,
 				514093EA2295403200E5D5D2 /* Alert.swift in Sources */,
+				514036762296BF3700F5AD13 /* Settings.swift in Sources */,
 				514093D02295207D00E5D5D2 /* City.swift in Sources */,
 				514093EE2295406600E5D5D2 /* Flag.swift in Sources */,
 				514093E52295338200E5D5D2 /* DetailsExtraInfos.swift in Sources */,
@@ -323,9 +333,11 @@
 				514093F6229540EA00E5D5D2 /* Units.swift in Sources */,
 				514093BC22951FF600E5D5D2 /* AppDelegate.swift in Sources */,
 				514093F82295418400E5D5D2 /* ApiManager.swift in Sources */,
+				514036742296BE0B00F5AD13 /* SettingsController.swift in Sources */,
 				514093E12295333900E5D5D2 /* DetailsHourlyForecast.swift in Sources */,
 				514093FC2295896100E5D5D2 /* Utils.swift in Sources */,
 				514093D2229524BC00E5D5D2 /* DetailsViewController.swift in Sources */,
+				514036782296BFAC00F5AD13 /* Language.swift in Sources */,
 				514093EC2295404E00E5D5D2 /* DataPoint.swift in Sources */,
 				514093F02295408400E5D5D2 /* DataBlock.swift in Sources */,
 			);

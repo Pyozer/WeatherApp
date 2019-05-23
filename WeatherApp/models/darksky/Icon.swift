@@ -6,8 +6,6 @@
 //  Copyright © 2019 Jean-Charles Moussé. All rights reserved.
 //
 
-import Foundation
-
 enum Icon: String, Decodable {
     case clearDay = "clear-day"
     case clearNight = "clear-night"

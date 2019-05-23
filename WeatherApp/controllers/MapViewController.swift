@@ -35,16 +35,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITableViewDataSou
     private func setMapVisible(_ showMap: Bool) {
         mapView.isHidden = !showMap
         containerTableView.isHidden = showMap
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: mapView.isHidden ? "map_icon" : "list_icon"),
-            style: .done,
-            target: self,
-            action: #selector(toggleMapVisible)
-        )
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(named: "settings_icon"),
+                style: .done,
+                target: self,
+                action: #selector(goToSettings)
+            ),
+            UIBarButtonItem(
+                image: UIImage(named: mapView.isHidden ? "map_icon" : "list_icon"),
+                style: .done,
+                target: self,
+                action: #selector(toggleMapVisible)
+            )
+        ]
     }
     
     @objc private func toggleMapVisible() {
         setMapVisible(mapView.isHidden)
+    }
+    
+    @objc private func goToSettings() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingsController") as? SettingsController
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     private func initMap() {

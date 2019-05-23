@@ -8,11 +8,6 @@
 
 import UIKit
 
-struct ExtraInfo {
-    let title: String
-    let value: String
-}
-
 class DetailsExtraInfos : UITableViewCell {
     
     @IBOutlet weak var labelLeftTitle: UILabel!
@@ -20,11 +15,19 @@ class DetailsExtraInfos : UITableViewCell {
     @IBOutlet weak var labelRightTitle: UILabel!
     @IBOutlet weak var labelRightValue: UILabel!
     
-    func setData(leftData: ExtraInfo, rightData: ExtraInfo) {
-        labelLeftTitle.text = leftData.title
-        labelLeftValue.text = leftData.value
-        labelRightTitle.text = rightData.title
-        labelRightValue.text = rightData.value
+    func setData(_ currentForecast: DataPoint, _ index: Int) {
+        if index == 1 {
+            labelLeftTitle.text = "Humidity"
+            labelLeftValue.text = "\((currentForecast.humidity ?? 0.0).toRoundString())%"
+            labelRightTitle.text = "Wind Speed"
+            let speed = (currentForecast.windSpeed ?? 0.0).toRoundString()
+            labelRightValue.text = Settings.unitSystem == .si ? "\(speed) km/h" : "\(speed) mph"
+        } else if index == 2 {
+            labelLeftTitle.text = "Pressure"
+            labelLeftValue.text = "\((currentForecast.pressure ?? 0.0).toRoundString())hPa"
+            labelRightTitle.text = "UV"
+            labelRightValue.text = "\((currentForecast.uvIndex ?? 0.0).toRoundString())"
+        }
     }
     
 }
