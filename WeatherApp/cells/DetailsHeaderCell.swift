@@ -22,8 +22,7 @@ class DetailsHeaderCell : UITableViewCell {
     func setData(_ forecast: Forecast, _ city: String) {
         headerCity.text = city
         if let _icon = forecast.currently?.icon {
-            let weatherAnimation = Animation.named(_icon.rawValue)
-            headerImage.animation = weatherAnimation
+            headerImage.animation = Animation.named(_icon.rawValue)
             headerImage.loopMode = .loop
             headerImage.play()
         }
