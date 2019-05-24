@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Lottie
 
 class DetailsDailyForecast : UITableViewCell {
     
     @IBOutlet weak var labelDay: UILabel!
-    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var icon: AnimationView!
     @IBOutlet weak var labelMinTemp: UILabel!
     @IBOutlet weak var labelMaxTemp: UILabel!
     
@@ -22,7 +23,9 @@ class DetailsDailyForecast : UITableViewCell {
         labelDay.text = dateFormatter.string(from: dailyData.time).capitalized
         
         if let _icon = dailyData.icon {
-            icon.image = UIImage(named: _icon.rawValue)
+            let weatherAnimation = Animation.named(_icon.rawValue)
+            icon.animation = weatherAnimation
+            icon.currentTime = TimeInterval((weatherAnimation?.duration ?? 0.0) / 2.0)
         }
         if let _minTemp = dailyData.temperatureMin {
             labelMinTemp.text = Utils.formatTemperature(_minTemp)

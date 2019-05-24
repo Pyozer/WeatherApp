@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Lottie
 
 class DetailsHourlyForecast : UITableViewCell {
     
     @IBOutlet weak var labelHour: UILabel!
-    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var icon: AnimationView!
     @IBOutlet weak var labelHumidity: UILabel!
     @IBOutlet weak var labelTemp: UILabel!
     
@@ -21,7 +22,9 @@ class DetailsHourlyForecast : UITableViewCell {
         labelHour.text = "\(String(format: "%02d", time))h"
         
         if let _icon = hourlyData.icon {
-            icon.image = UIImage(named: _icon.rawValue)
+            let weatherAnimation = Animation.named(_icon.rawValue)
+            icon.animation = weatherAnimation
+            icon.currentTime = TimeInterval((weatherAnimation?.duration ?? 0.0) / 2.0)
         }
         if let _humidity = hourlyData.humidity {
             if _humidity > 0 {

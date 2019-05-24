@@ -22,17 +22,10 @@ class DetailsHeaderCell : UITableViewCell {
     func setData(_ forecast: Forecast, _ city: String) {
         headerCity.text = city
         if let _icon = forecast.currently?.icon {
-            print(_icon.rawValue)
             let weatherAnimation = Animation.named(_icon.rawValue)
-            print("Loaded")
             headerImage.animation = weatherAnimation
-            print("Apply anim")
             headerImage.loopMode = .loop
-            print("Loop mode")
-            headerImage.play { (finished) in
-                 print("Played finished")
-            }
-            print("Play")
+            headerImage.play()
         }
         if let _temp = forecast.currently?.temperature {
             headerTemp.text = Utils.formatTemperature(_temp)

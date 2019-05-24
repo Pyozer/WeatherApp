@@ -8,33 +8,58 @@
 
 import UIKit
 import CoreLocation
+import Lottie
 
 class SearchCityController : BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loader: AnimationView!
     
     var locationResults: [Result]?
+    var search: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        let loaderAnim = Animation.named("loader")
+        loader.animation = loaderAnim
+        loader.loopMode = .loop
+        setVisibleLoader(false)
+    }
+    
+    private func setVisibleLoader(_ isVisible: Bool) {
+        loader.isHidden = !isVisible
+        tableView.isHidden = isVisible
+        if !loader.isHidden && !loader.isAnimationPlaying {
+            loader.play()
+        } else if loader.isHidden && loader.isAnimationPlaying {
+            loader.pause()
+        }
     }
     
     @IBAction func onTextChange(_ sender: UITextField) {
-        if let _search = sender.text {
-            ApiManager.searchCity(
-                city: _search,
-                onSuccess: { response in
-                    DispatchQueue.main.async {
-                        self.locationResults = response.results
-                        self.tableView.reloadData()
-                    }
-                },
-                onFail: { error in
-                    self.showAlert(error?.localizedDescription ?? "Unknown error")
+        if let _search = sender.text, search != _search {
+            search = _search
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                if _search == self.search {
+                    self.setVisibleLoader(true)
+                    ApiManager.searchCity(
+                        city: _search,
+                        onSuccess: { response in
+                            DispatchQueue.main.async {
+                                self.locationResults = response.results
+                                self.tableView.reloadData()
+                            }
+                            self.setVisibleLoader(false)
+                        },
+                        onFail: { error in
+                            self.setVisibleLoader(false)
+                            self.showAlert(error?.localizedDescription ?? "Unknown error")
+                        }
+                    )
                 }
-            )
+            }
         }
     }
     
@@ -66,7 +91,9 @@ class SearchCityController : BaseViewController, UITableViewDataSource, UITableV
             return
         }
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        vc.city = City(name: _formatted, coordinates: CLLocationCoordinate2D(latitude: _lat, longitude: _lng))
+        let city = City(name: _formatted, coordinates: CLLocationCoordinate2D(latitude: _lat, longitude: _lng))
+        vc.city = city
+        CitiesData.list.append(city)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -47,12 +47,15 @@ class ApiManager {
     }
     
     static func searchCity(city: String, onSuccess: @escaping OnSuccess<OpenCageResponse>, onFail: @escaping OnFail) {
-        let apiKey = "d4e31e434f454275afdd763478b59891"
-        Alamofire.request(
-            "https://api.opencagedata.com/geocode/v1/json?q=\(city)&key=\(apiKey)&no_dedupe=1&language=\(Settings.language.rawValue)"
-        ).responseData { response in
-            if let _response = parseData(response, OpenCageResponse.self, onFail) {
-                onSuccess(_response)
+        if let query = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let apiKey = "d4e31e434f454275afdd763478b59891"
+            let lang = Settings.language.rawValue
+            Alamofire.request(
+                "https://api.opencagedata.com/geocode/v1/json?q=\(query)&key=\(apiKey)&no_dedupe=1&language=\(lang)&abbrv=0"
+            ).responseData { response in
+                if let _response = parseData(response, OpenCageResponse.self, onFail) {
+                    onSuccess(_response)
+                }
             }
         }
     }

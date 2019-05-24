@@ -7,35 +7,53 @@
 //
 
 import UIKit
+import Lottie
 
 class DetailsViewController : BaseViewController, UITableViewDataSource {
     var city: City?
     var forecast: Forecast?
-    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loader: AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = city?.name
+        let loaderAnim = Animation.named("loader")
+        loader.animation = loaderAnim
+        loader.loopMode = .loop
         fetchWeatherData()
     }
     
     private func fetchWeatherData() {
         if let _city = city {
-            ApiManager.getWeatherForecast(
-                city: _city,
-                onSuccess: { result in
-                    self.forecast = result
-                    if let _only24hForecast = self.forecast?.hourly?.data.prefix(24) {
-                        self.forecast?.hourly?.data = Array(_only24hForecast)
+            setVisibleLoader(true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                ApiManager.getWeatherForecast(
+                    city: _city,
+                    onSuccess: { result in
+                        self.forecast = result
+                        if let _only24hForecast = self.forecast?.hourly?.data.prefix(24) {
+                            self.forecast?.hourly?.data = Array(_only24hForecast)
+                        }
+                        self.tableView.reloadData()
+                        self.setVisibleLoader(false)
+                    },
+                    onFail: { error in
+                        self.setVisibleLoader(false)
+                        self.showAlert(error?.localizedDescription ?? "Error during fetch weather data")
                     }
-                    self.tableView.reloadData()
-                },
-                onFail: { error in
-                    self.showAlert(error?.localizedDescription ?? "Error during fetch weather data")
-                }
-            )
+                )
+            }
+        }
+    }
+    
+    private func setVisibleLoader(_ isVisible: Bool) {
+        loader.isHidden = !isVisible
+        if !loader.isHidden && !loader.isAnimationPlaying {
+            loader.play()
+        } else if loader.isHidden && loader.isAnimationPlaying {
+            loader.pause()
         }
     }
     

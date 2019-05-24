@@ -30,6 +30,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITableViewDataSou
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
+        initMarkers()
+        tableView.reloadData()
     }
     
     private func setMapVisible(_ showMap: Bool) {
@@ -60,7 +62,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITableViewDataSou
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    
     @IBAction func onSearchBtnPressed(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchCityController") as? SearchCityController
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -69,7 +70,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITableViewDataSou
     private func initMap() {
         mapView.delegate = self
         mapView.showsUserLocation = true
-        initMarkers()
     }
     
     private func checkLocationAuthorizationStatus() {
