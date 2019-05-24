@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1155F8EDA94498BF55BC9110 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */; };
+		510DD8682297EF63009CD69B /* clear-day.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD85D2297EF63009CD69B /* clear-day.json */; };
+		510DD8692297EF63009CD69B /* rain.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD85E2297EF63009CD69B /* rain.json */; };
+		510DD86A2297EF63009CD69B /* snow.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD85F2297EF63009CD69B /* snow.json */; };
+		510DD86B2297EF63009CD69B /* thunderstorm.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8602297EF63009CD69B /* thunderstorm.json */; };
+		510DD86C2297EF63009CD69B /* wind.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8612297EF63009CD69B /* wind.json */; };
+		510DD86D2297EF63009CD69B /* clear-night.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8622297EF63009CD69B /* clear-night.json */; };
+		510DD86E2297EF63009CD69B /* sleet.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8632297EF63009CD69B /* sleet.json */; };
+		510DD86F2297EF63009CD69B /* partly-cloudy-night.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8642297EF63009CD69B /* partly-cloudy-night.json */; };
+		510DD8702297EF63009CD69B /* fog.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8652297EF63009CD69B /* fog.json */; };
+		510DD8712297EF63009CD69B /* cloudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8662297EF63009CD69B /* cloudy.json */; };
+		510DD8722297EF63009CD69B /* partly-cloudy-day.json in Resources */ = {isa = PBXBuildFile; fileRef = 510DD8672297EF63009CD69B /* partly-cloudy-day.json */; };
+		510DD8742297F6A6009CD69B /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 510DD8732297F6A6009CD69B /* Lottie.framework */; };
 		5131FA172297480F001CFAE8 /* SearchCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FA162297480F001CFAE8 /* SearchCityCell.swift */; };
 		5131FA1A22974FB8001CFAE8 /* OpenCageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FA1922974FB8001CFAE8 /* OpenCageResponse.swift */; };
 		5131FA1C2297534A001CFAE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131FA1B2297534A001CFAE8 /* BaseViewController.swift */; };
@@ -43,6 +55,18 @@
 
 /* Begin PBXFileReference section */
 		14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		510DD85D2297EF63009CD69B /* clear-day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clear-day.json"; sourceTree = "<group>"; };
+		510DD85E2297EF63009CD69B /* rain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rain.json; sourceTree = "<group>"; };
+		510DD85F2297EF63009CD69B /* snow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snow.json; sourceTree = "<group>"; };
+		510DD8602297EF63009CD69B /* thunderstorm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thunderstorm.json; sourceTree = "<group>"; };
+		510DD8612297EF63009CD69B /* wind.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wind.json; sourceTree = "<group>"; };
+		510DD8622297EF63009CD69B /* clear-night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clear-night.json"; sourceTree = "<group>"; };
+		510DD8632297EF63009CD69B /* sleet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleet.json; sourceTree = "<group>"; };
+		510DD8642297EF63009CD69B /* partly-cloudy-night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "partly-cloudy-night.json"; sourceTree = "<group>"; };
+		510DD8652297EF63009CD69B /* fog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fog.json; sourceTree = "<group>"; };
+		510DD8662297EF63009CD69B /* cloudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudy.json; sourceTree = "<group>"; };
+		510DD8672297EF63009CD69B /* partly-cloudy-day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "partly-cloudy-day.json"; sourceTree = "<group>"; };
+		510DD8732297F6A6009CD69B /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5131FA162297480F001CFAE8 /* SearchCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityCell.swift; sourceTree = "<group>"; };
 		5131FA1922974FB8001CFAE8 /* OpenCageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCageResponse.swift; sourceTree = "<group>"; };
 		5131FA1B2297534A001CFAE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				510DD8742297F6A6009CD69B /* Lottie.framework in Frameworks */,
 				1155F8EDA94498BF55BC9110 /* Pods_WeatherApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +124,24 @@
 				5D5B37E20BA65DD8B65A0897 /* Pods-WeatherApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		510DD82E2297DF3F009CD69B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				510DD85D2297EF63009CD69B /* clear-day.json */,
+				510DD8622297EF63009CD69B /* clear-night.json */,
+				510DD8662297EF63009CD69B /* cloudy.json */,
+				510DD8652297EF63009CD69B /* fog.json */,
+				510DD8672297EF63009CD69B /* partly-cloudy-day.json */,
+				510DD8642297EF63009CD69B /* partly-cloudy-night.json */,
+				510DD85E2297EF63009CD69B /* rain.json */,
+				510DD8632297EF63009CD69B /* sleet.json */,
+				510DD85F2297EF63009CD69B /* snow.json */,
+				510DD8602297EF63009CD69B /* thunderstorm.json */,
+				510DD8612297EF63009CD69B /* wind.json */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		5131FA1822974FA7001CFAE8 /* opencage */ = {
@@ -130,6 +173,7 @@
 		514093BA22951FF600E5D5D2 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				510DD82E2297DF3F009CD69B /* Assets */,
 				514093DB229532C800E5D5D2 /* cells */,
 				514093DA229528A900E5D5D2 /* utils */,
 				514093D92295289D00E5D5D2 /* controllers */,
@@ -209,6 +253,7 @@
 		927C35238703E07EC5B4AD88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				510DD8732297F6A6009CD69B /* Lottie.framework */,
 				14C8CE632B57979891FBE26C /* Pods_WeatherApp.framework */,
 			);
 			name = Frameworks;
@@ -274,9 +319,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				510DD8722297EF63009CD69B /* partly-cloudy-day.json in Resources */,
+				510DD8682297EF63009CD69B /* clear-day.json in Resources */,
 				514093C622951FF600E5D5D2 /* LaunchScreen.storyboard in Resources */,
 				514093C322951FF600E5D5D2 /* Assets.xcassets in Resources */,
+				510DD86C2297EF63009CD69B /* wind.json in Resources */,
+				510DD86F2297EF63009CD69B /* partly-cloudy-night.json in Resources */,
+				510DD86D2297EF63009CD69B /* clear-night.json in Resources */,
+				510DD8712297EF63009CD69B /* cloudy.json in Resources */,
+				510DD86E2297EF63009CD69B /* sleet.json in Resources */,
 				514093C122951FF600E5D5D2 /* Main.storyboard in Resources */,
+				510DD8702297EF63009CD69B /* fog.json in Resources */,
+				510DD86B2297EF63009CD69B /* thunderstorm.json in Resources */,
+				510DD86A2297EF63009CD69B /* snow.json in Resources */,
+				510DD8692297EF63009CD69B /* rain.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +350,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -301,6 +358,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -518,7 +576,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pyozer.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -536,7 +594,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pyozer.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

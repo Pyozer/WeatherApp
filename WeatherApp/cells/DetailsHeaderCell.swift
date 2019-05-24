@@ -8,11 +8,12 @@
 
 import UIKit
 import Charts
+import Lottie
 
 class DetailsHeaderCell : UITableViewCell {
     
     @IBOutlet weak var headerCity: UILabel!
-    @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var headerImage: AnimationView!
     @IBOutlet weak var headerTemp: UILabel!
     @IBOutlet weak var headerWeather: UILabel!
     @IBOutlet weak var chartView: LineChartView!
@@ -21,7 +22,17 @@ class DetailsHeaderCell : UITableViewCell {
     func setData(_ forecast: Forecast, _ city: String) {
         headerCity.text = city
         if let _icon = forecast.currently?.icon {
-            headerImage.image = UIImage(named: _icon.rawValue)
+            print(_icon.rawValue)
+            let weatherAnimation = Animation.named(_icon.rawValue)
+            print("Loaded")
+            headerImage.animation = weatherAnimation
+            print("Apply anim")
+            headerImage.loopMode = .loop
+            print("Loop mode")
+            headerImage.play { (finished) in
+                 print("Played finished")
+            }
+            print("Play")
         }
         if let _temp = forecast.currently?.temperature {
             headerTemp.text = Utils.formatTemperature(_temp)
@@ -50,7 +61,7 @@ class DetailsHeaderCell : UITableViewCell {
         
         let line1 = LineChartDataSet(entries: temperaturesEntries, label: "Temperature")
         line1.mode = .cubicBezier
-        applyParamsLineChart(line1, #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), TempratureValueFormatter())
+        applyParamsLineChart(line1, #colorLiteral(red: 1, green: 0.7568627451, blue: 0.02745098039, alpha: 1), #colorLiteral(red: 1, green: 0.8352941176, blue: 0.3098039216, alpha: 1), TempratureValueFormatter())
         
         let line2 = LineChartDataSet(entries: humidityEntries, label: "Humidity")
         applyParamsLineChart(line2, #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), HumidityValueFormatter())
@@ -61,6 +72,7 @@ class DetailsHeaderCell : UITableViewCell {
     
     private func applyParamsLineChart(_ line: LineChartDataSet, _ color: UIColor, _ fillColor: UIColor, _ formatter: IValueFormatter) {
         line.colors = [color]
+        line.lineWidth = 2.3
         line.fillColor = fillColor
         line.valueFormatter = formatter
         line.drawFilledEnabled = true

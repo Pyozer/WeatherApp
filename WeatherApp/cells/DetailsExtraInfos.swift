@@ -23,7 +23,7 @@ class DetailsExtraInfos : UITableViewCell {
             labelRightValue.text = Utils.formatSpeed(currentForecast.windSpeed ?? 0.0)
         } else if index == 2 {
             labelLeftTitle.text = "Pressure"
-            labelLeftValue.text = "\((currentForecast.pressure ?? 0.0).toRoundString())hPa"
+            labelLeftValue.text = "\((currentForecast.pressure ?? 0.0).toRoundString()) hPa"
             labelRightTitle.text = "UV"
             labelRightValue.text = "\((currentForecast.uvIndex ?? 0.0).toRoundString())"
         }

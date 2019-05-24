@@ -49,7 +49,7 @@ class SearchCityController : BaseViewController, UITableViewDataSource, UITableV
         
         if let _formatted = _location.formatted {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! SearchCityCell
-            cell.setCity(_formatted)
+            cell.setCity("\(_location.annotations?.flag ?? "") \(_formatted)")
             return cell
         }
         return UITableViewCell()

@@ -48,7 +48,9 @@ class ApiManager {
     
     static func searchCity(city: String, onSuccess: @escaping OnSuccess<OpenCageResponse>, onFail: @escaping OnFail) {
         let apiKey = "d4e31e434f454275afdd763478b59891"
-        Alamofire.request("https://api.opencagedata.com/geocode/v1/json?q=\(city)&key=\(apiKey)").responseData { response in
+        Alamofire.request(
+            "https://api.opencagedata.com/geocode/v1/json?q=\(city)&key=\(apiKey)&no_dedupe=1&language=\(Settings.language.rawValue)"
+        ).responseData { response in
             if let _response = parseData(response, OpenCageResponse.self, onFail) {
                 onSuccess(_response)
             }
